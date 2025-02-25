@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AddTask from "./components/addTask";
+import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 import { v4 } from "uuid";
 import Title from "./components/Title";
@@ -13,19 +13,19 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // useEffect(() => {
-  //   const fetchTasks = async () => {
-  //     const response = await fetch(
-  //       "https://jsonplaceholder.typicode.com/todos?_limit=10",
-  //       { method: "GET" }
-  //     );
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10",
+        { method: "GET" }
+      );
 
-  //     const data = await response.json();
+      const data = await response.json();
 
-  //     setTasks(data);
-  //   };
-  //   //fetchTasks();
-  // }, []);
+      setTasks(data);
+    };
+    //fetchTasks();
+  }, []);
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
