@@ -8,13 +8,13 @@ function AddTask({ onAddTaskSubmit }) {
     <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
       <Input
         type="text"
-        placeholder="Digite a título da tarefa"
-        onChange={(event) => setDescription(event.target.value)}
+        placeholder="Type the title of the task"
+        onChange={(event) => setTitle(event.target.value)}
         value={title}
       />
       <Input
         type="text"
-        placeholder="Digite a descrição da tarefa"
+        placeholder="Type the description of the task"
         onChange={(event) => setDescription(event.target.value)}
         value={description}
       />
@@ -22,14 +22,14 @@ function AddTask({ onAddTaskSubmit }) {
         className="bg-slate-600 rounded-md p-2 text-white"
         onClick={() => {
           if (!title || !description) {
-            return alert("Preencha o titulo e a descriçao da tarefa");
+            return alert("Fill title and description of the task");
           }
           onAddTaskSubmit(title, description);
           setTitle("");
           setDescription("");
         }}
       >
-        Adicionar
+        Add
       </button>
     </div>
   );

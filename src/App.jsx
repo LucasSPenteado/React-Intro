@@ -13,19 +13,19 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=10",
-        { method: "GET" }
-      );
+  // useEffect(() => {
+  //   const fetchTasks = async () => {
+  //     const response = await fetch(
+  //       "https://jsonplaceholder.typicode.com/todos?_limit=10",
+  //       { method: "GET" }
+  //     );
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      setTasks(data);
-    };
-    //fetchTasks();
-  }, []);
+  //     setTasks(data);
+  //   };
+  //   //fetchTasks();
+  // }, []);
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
@@ -56,7 +56,7 @@ function App() {
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px] space-y-4">
-        <Title>Gerenciador de Tarefas</Title>
+        <Title>Todo Manager</Title>
         <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
